@@ -1,0 +1,10 @@
+apiVersion: authentication.concierge.pinniped.dev/v1alpha1
+kind: JWTAuthenticator
+metadata:
+  name: supervisor-jwt-authenticator
+spec:
+  issuer:  {{ .Values.JWTAuthentication.issuer | quote }}
+  audience: {{ .Values.JWTAuthentication.audience | quote }}
+  claims:
+    username: username
+    groups: groups

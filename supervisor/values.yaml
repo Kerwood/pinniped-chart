@@ -1,0 +1,17 @@
+
+namespace: pinniped-supervisor
+
+federationDomain:
+  name: azure-ad
+  issuer: https://supervisor.example.org
+
+ingress:
+  ingressClass: nginx
+  clusterIssuer: le-http01
+  host: supervisor.example.org
+
+oidcIdentityProvider:
+  name: azure-idp
+  issuer: https://login.microsoftonline.com/<TENANT-ID-HERE>/v2.0
+  clientSecretName: azure-oidc-client # Secret containing the Azure App Registration creds.
+

@@ -1,0 +1,7 @@
+apiVersion: config.supervisor.pinniped.dev/v1alpha1
+kind: FederationDomain
+metadata:
+  name: {{ .Values.federationDomain.name | default "pinniped-supervisor" | lower }}
+  namespace: {{ .Values.namespace | default "pinniped-supervisor" | lower }}
+spec:
+  issuer: {{ .Values.federationDomain.issuer | quote}}

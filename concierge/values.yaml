@@ -1,0 +1,3 @@
+JWTAuthentication:
+  issuer: https://supervisor.example.org
+  audience: 000000000000000000000000

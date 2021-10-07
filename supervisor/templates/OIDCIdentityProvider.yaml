@@ -1,0 +1,14 @@
+apiVersion: idp.supervisor.pinniped.dev/v1alpha1
+kind: OIDCIdentityProvider
+metadata:
+  name:  {{ .Values.oidcIdentityProvider.name }}
+  namespace: {{ .Values.namespace | default "pinniped-supervisor" | lower }}
+spec:
+  issuer: {{ .Values.oidcIdentityProvider.issuer }}
+  claims:
+    username: email
+    groups: groups
+  authorizationConfig:
+    additionalScopes: ['email', 'profile']
+  client:
+    secretName: {{ .Values.oidcIdentityProvider.clientSecretName }}
